@@ -1,0 +1,40 @@
+.list__filter {
+  border: 1px solid rgba(223, 229, 236, 1);
+  border-radius: 5px;
+  display: flex;
+  height: 50px;
+  width: 502px;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(74, 74, 74, 1);
+  margin-bottom: 20px;
+  .list__cheap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(223, 229, 236, 1);
+    width: 100%;
+  }
+  .list__fast {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .list__optima {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-left: 1px solid rgba(223, 229, 236, 1);
+  }
+  .filter:hover {
+    background: rgba(33, 150, 243, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+  }
+  .filter__onClick {
+    background: rgba(33, 150, 243, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+}

@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  background: rgba(243, 247, 250, 1);
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  min-height: 98vh;
+  max-width: 754px;
+  margin: 0 auto;
+  .header {
+    padding: 50px 0;
+    text-align: center;
+  }
+  .list {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inputed:checked + .list__checkSpan {
+    background-image: url(../img/Checkbox-ye.svg);
+  }
+
+  .list__checkSpan {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: -30px;
+    background-image: url(../img/Checkbox-no.svg);
+  }
+}

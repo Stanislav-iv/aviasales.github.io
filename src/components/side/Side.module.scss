@@ -1,0 +1,44 @@
+.list__side {
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  width: 232px;
+  height: 252px;
+  display: flex;
+  flex-direction: column;
+  color: rgba(74, 74, 74, 1);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+
+  .list__form {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    line-height: 20px;
+    width: 232px;
+  }
+  .list__check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+.list__side h3 {
+  margin: 10px 20px;
+}
+.list__side label {
+  display: block;
+  position: relative;
+  padding: 10px 10px 10px 50px;
+  cursor: pointer;
+  font-weight: 400;
+}
+.list__side label:hover {
+  background: rgba(241, 252, 255, 1);
+}
