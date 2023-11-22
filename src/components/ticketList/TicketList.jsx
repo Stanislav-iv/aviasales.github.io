@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Ticket from '../ticket/Ticket'
 import ErrorTicket from '../error/Error'
 import Spiner from '../spiner/Spiner'
-import { searchFetchId } from '../../store/Service'
+import { searchFetchId, searchTicket } from '../../store/Service'
 import { funShowTicket, funErrorTicket } from '../../store/ReducerFilter'
 import Key from '../utilites/Key'
 
@@ -14,12 +14,16 @@ const TicketList = () => {
   const check = useSelector((state) => state.filter)
 
   useEffect(() => {
-    try {
-      dispath(searchFetchId())
-    } catch (error) {
-      dispath(funErrorTicket(true))
-    }
+    dispath(searchFetchId())
+      .then((res) => {
+        return res.json()
+      })
+      .then((id) => {
+        dispath(searchTicket(id.searchId))
+      })
+      .catch(() => dispath(funErrorTicket(true)))
   }, [dispath])
+
   const filterdTick = useCallback(
     (tickArr) => {
       return tickArr.filter((current) => {
@@ -37,11 +41,11 @@ const TicketList = () => {
     },
     [check]
   )
-  const hasData = !(check.loading || check.isError)
+  const hasData = !(check.loadingShow || check.isError)
   const errorTicket = check.isError ? <ErrorTicket /> : null
   const spinner = check.loading ? <Spiner /> : null
   const notLoading =
-    !check.checkAll && !check.checkNo && !check.checkOne && !check.checktwo && !check.checkTre ? (
+    !check.checkAll && !check.checkNo && !check.checkOne && !check.checkTwo && !check.checkTre ? (
       <p> not results</p>
     ) : null
   /* eslint-disable */

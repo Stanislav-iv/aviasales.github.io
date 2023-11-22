@@ -8,8 +8,8 @@ const defStore = {
   tickFaster: false,
   tickOptima: false,
   loading: true,
+  loadingShow: true,
   isError: false,
-  searchIdx: '',
   tickets: [],
   ShowTicket: 5,
 }
@@ -29,6 +29,11 @@ export const reducerFilter = (state = defStore, action) => {
         ...state,
         loading: action.payload,
       }
+    case 'loadingShow':
+      return {
+        ...state,
+        loadingShow: action.payload,
+      }
     case 'Error':
       return {
         ...state,
@@ -37,12 +42,12 @@ export const reducerFilter = (state = defStore, action) => {
     case 'DataTicket':
       return {
         ...state,
-        tickets: action.payload,
+        tickets: [...state.tickets, ...action.payload],
       }
-    case 'DATA_ID':
+    case 'DataTicketSort':
       return {
         ...state,
-        searchIdx: action.payload,
+        tickets: action.payload,
       }
     case 'Show':
       return {
@@ -80,8 +85,9 @@ export const funcheckTre = (payload) => ({ type: checkTre, payload })
 export const funTickCheap = (payload) => ({ type: tickCheap, payload })
 export const funTickFaster = (payload) => ({ type: tickFaster, payload })
 export const funTickOptima = (payload) => ({ type: tickOptima, payload })
-export const funGetId = (payload) => ({ type: 'DATA_ID', payload })
 export const funGetTicket = (payload) => ({ type: 'DataTicket', payload })
+export const funDataTicketSort = (payload) => ({ type: 'DataTicketSort', payload })
 export const funShowTicket = (payload) => ({ type: 'Show', payload })
 export const funErrorTicket = (payload) => ({ type: 'Error', payload })
 export const funLoadingTicket = (payload) => ({ type: 'Loading', payload })
+export const funLoadingShow = (payload) => ({ type: 'loadingShow', payload })
